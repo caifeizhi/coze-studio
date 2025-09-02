@@ -24,7 +24,52 @@ English | [中文](README.zh_CN.md)
 
 Coze Studio, derived from the "Coze Development Platform" which has served tens of thousands of enterprises and millions of developers, we have made its core engine completely open. It is a one-stop visual development tool for AI Agents that makes creating, debugging, and deploying AI Agents unprecedentedly simple. Through Coze Studio's visual design and build tools, developers can quickly create and debug agents, apps, and workflows using no-code or low-code approaches, enabling powerful AI app development and more customized business logic. It's an ideal choice for building low-code AI products tailored . Coze Studio aims to lower the threshold for AI agent development and application, encouraging community co-construction and sharing for deeper exploration and practice in the AI field.
 
-The backend of Coze Studio is developed using Golang, the frontend uses React + TypeScript, and the overall architecture is based on microservices and built following domain-driven design (DDD) principles. Provide developers with a high-performance, highly scalable, and easy-to-customize underlying framework to help them address complex business needs.
+## Technical Architecture
+
+### Main Development Languages
+
+**Backend - Golang**
+- **Version**: Go 1.24.0+
+- **Framework**: CloudWeGo Hertz - High-performance HTTP framework
+- **Architecture**: Microservices with Domain-Driven Design (DDD) principles
+- **Purpose**: Provides high-performance, scalable backend services for AI agent runtime, workflow engine, and business logic
+
+**Frontend - React + TypeScript**
+- **React Version**: 18.2.0
+- **TypeScript Version**: 5.8.2
+- **Build Tools**: Rsbuild (based on Rspack) for fast development and building
+- **UI Framework**: Custom design system with Arco Design components
+- **Purpose**: Delivers a modern, responsive web interface for visual AI agent development
+
+### Database Technologies
+
+**Primary Database - MySQL**
+- **Version**: 8.4.5
+- **Purpose**: Main relational database for storing application data, user information, agent configurations, and business entities
+- **Features**: Full ACID compliance, supports complex queries and transactions
+
+**Caching Layer - Redis**
+- **Version**: 8.0 (Bitnami)
+- **Purpose**: High-performance caching for session management, temporary data storage, and application performance optimization
+
+**Search Engine - Elasticsearch**
+- **Versions**: Support for both v7 and v8
+- **Purpose**: Full-text search capabilities for knowledge bases, document indexing, and content discovery
+
+**Vector Database - Milvus**
+- **Purpose**: Stores and manages vector embeddings for AI/ML features, enabling semantic search and similarity matching in knowledge bases
+
+**Object Storage - MinIO**
+- **Purpose**: S3-compatible object storage for files, documents, images, and other unstructured data
+
+### Key Frameworks & Libraries
+
+- **AI Runtime**: Eino framework for AI agent and workflow execution
+- **Workflow Engine**: FlowGram for visual workflow building
+- **Monorepo Management**: Rush.js for managing multiple packages
+- **Containerization**: Docker and Docker Compose for deployment
+
+This architecture provides developers with a high-performance, highly scalable, and easy-to-customize underlying framework to help them address complex AI agent development needs.
 ## Feature list
 | **Module** | **Feature** |
 | --- | --- |
